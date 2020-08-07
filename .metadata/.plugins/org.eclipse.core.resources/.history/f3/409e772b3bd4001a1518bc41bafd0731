@@ -1,0 +1,24 @@
+package br.com.ztech.controller.dto.converter;
+
+import java.text.NumberFormat;
+import java.util.List;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
+
+import br.com.ztech.controller.dto.ClienteDto;
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.controller.dto.ExtratoDto;
+import br.com.ztech.domain.Conta;
+import br.com.ztech.domain.Transacao;
+
+@Configuration
+public class TransacoesConverterExtradoDto implements Converter<List<Transacao>, ExtratoDto> {
+	
+	@Override
+	public ExtratoDto convert(List<Transacao> source) {
+		
+		
+		return null;
+	}
+}

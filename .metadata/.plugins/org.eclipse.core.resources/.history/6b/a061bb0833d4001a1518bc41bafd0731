@@ -1,0 +1,86 @@
+package br.com.ztech.controller;
+
+import java.math.BigDecimal;
+
+import javax.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.controller.dto.converter.ContaConverterContaDto;
+import br.com.ztech.controller.request.AbrirContaRequest;
+import br.com.ztech.controller.request.MovimentacaoContaRequest;
+import br.com.ztech.controller.request.converter.AbrirContaRequestConverterCliente;
+import br.com.ztech.service.ContaService;
+import br.com.ztech.service.ExtratoService;
+
+@RestController
+@RequestMapping("conta")
+public class ContaController {
+	
+	private final static Logger logger = LogManager.getLogger(ContaController.class);
+	
+	@Autowired
+	private ContaService contaService;
+	
+	@Autowired
+	private ExtratoService extratoService;
+	
+	@Autowired
+	private ContaConverterContaDto contaConverterContaDto;
+	
+	@Autowired
+	private AbrirContaRequestConverterCliente clienteRequestConverterCliente;
+	
+	@PostMapping
+	public ResponseEntity<ContaDto> abrirConta(@RequestBody @Valid AbrirContaRequest abrirContaRequest) {
+		
+		logger.info("abrirConta {}", abrirContaRequest);
+
+		var conta = contaService.abrirConta(clienteRequestConverterCliente.convert(abrirContaRequest));
+		
+		logger.info("Conta aberta com suecesso! {}", conta);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.CREATED);
+	}
+	
+	@PutMapping("/depositar/{agencia}/{numeroConta}")
+	public ResponseEntity<ContaDto> depositar(@PathVariable Integer agencia, @PathVariable Integer numeroConta, @RequestBody @Valid MovimentacaoContaRequest depositarContaRequest) {
+		
+		logger.info("depositar");
+		
+		var conta = contaService.depositarConta(agencia, numeroConta, BigDecimal.valueOf(depositarContaRequest.getValor()));
+		
+		logger.info("Deposito efetuado com sucesso na {}", conta);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
+	}
+	
+	@PutMapping("/sacar/{agencia}/{numeroConta}")
+	public ResponseEntity<ContaDto> sacar(@PathVariable Integer agencia, @PathVariable Integer numeroConta, @RequestBody @Valid MovimentacaoContaRequest depositarContaRequest) {
+		
+		logger.info("depositar");
+		
+		var conta = contaService.sacarConta(agencia, numeroConta, BigDecimal.valueOf(depositarContaRequest.getValor()));
+		
+		logger.info("Deposito efetuado com sucesso na {}", conta);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
+	}
+	
+	public void transferir() {
+		
+	}
+	
+	public void extrato() {
+		
+	}
+}

@@ -1,0 +1,11 @@
+package br.com.ztech.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.ztech.domain.Conta;
+
+public interface ContaRepository extends JpaRepository<Conta, Long> {
+	
+	Conta findByAgenciaAndConta(Integer agencia, Integer conta);
+
+}

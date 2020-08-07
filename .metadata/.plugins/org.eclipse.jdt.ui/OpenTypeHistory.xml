@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=z-tech-autenticacao/C:\/Users\/User\/.m2\/repository\/org\/springframework\/data\/spring-data-commons\/2.2.9.RELEASE\/spring-data-commons-2.2.9.RELEASE.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-commons=/=/maven.version=/2.2.9.RELEASE=/=/maven.scope=/compile=/&lt;org.springframework.data.repository(CrudRepository.class[CrudRepository" modifiers="1537" timestamp="1595984284504"/>
+    <typeInfo handle="=petz/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;petz.com.br.controller.dto.converter{ClienteConverterClienteDto.java[ClienteConverterClienteDto" modifiers="1" timestamp="1596214018260"/>
+    <typeInfo handle="=z-tech-bancodigital/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.ztech.domain{Conta.java[Conta" modifiers="1" timestamp="1596320463947"/>
+    <typeInfo handle="=petz/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;petz.com.br.domain{Pet.java[Pet" modifiers="1" timestamp="1596161458670"/>
+    <typeInfo handle="=z-tech-bancodigital/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.ztech.controller.dto{ExtratoDto.java[ExtratoDto" modifiers="1" timestamp="1596316210508"/>
+    <typeInfo handle="=z-tech-bancodigital/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.ztech.domain{Transacao.java[Transacao" modifiers="1" timestamp="1596321558684"/>
+    <typeInfo handle="=z-tech-bancodigital/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.ztech.domain{TipoTransacao.java[TipoTransacao" modifiers="1" timestamp="1596262219465"/>
+    <typeInfo handle="=z-tech-bancodigital/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.ztech.domain{TipoTransacaoEnum.java[TipoTransacaoEnum" modifiers="16385" timestamp="1596322252145"/>
+</typeInfoHistroy>

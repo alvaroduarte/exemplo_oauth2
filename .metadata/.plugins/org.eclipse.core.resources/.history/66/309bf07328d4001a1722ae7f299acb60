@@ -1,0 +1,44 @@
+package br.com.ztech.controller;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+import javax.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.controller.dto.converter.ContaConverterContaDto;
+import br.com.ztech.controller.request.AbrirContaRequest;
+import br.com.ztech.controller.request.MovimentacaoContaRequest;
+import br.com.ztech.controller.request.converter.AbrirContaRequestConverterCliente;
+import br.com.ztech.service.ContaService;
+import petz.com.br.controller.dto.ClienteDto;
+
+@RestController
+@RequestMapping("extrato")
+public class ExtratoController {
+	
+	private final static Logger logger = LogManager.getLogger(ExtratoController.class);
+	
+	@GetMapping
+	public ResponseEntity<List<ClienteDto>> buscar(String cpf) {	
+		
+		logger.info("abrirConta {}", abrirContaRequest);
+
+		var conta = contaService.abrirConta(clienteRequestConverterCliente.convert(abrirContaRequest));
+		
+		logger.info("Conta aberta com suecesso! {}", conta);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.CREATED);
+	}
+}

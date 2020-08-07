@@ -1,0 +1,40 @@
+package br.com.ztech.controller;
+
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.ztech.controller.dto.ExtratoDto;
+import br.com.ztech.service.ExtratoService;
+
+@RestController
+@RequestMapping("extrato")
+public class ExtratoController {
+	
+	private final static Logger logger = LogManager.getLogger(ExtratoController.class);
+	
+	@Autowired
+	private ExtratoService extratoService;
+	
+	@GetMapping("/{agencia}/{numeroConta}")
+	public ResponseEntity<List<ExtratoDto>> extrato(@PathVariable Integer agencia, @PathVariable Integer numeroConta) {	
+		
+		logger.info("extrato agencia {}, numeroConta{}", agencia, numeroConta);
+
+		//var conta = contaService.abrirConta(clienteRequestConverterCliente.convert(abrirContaRequest));
+		
+		//logger.info("Conta aberta com suecesso! {}", conta);
+		
+		//return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.CREATED);
+		
+		return null;
+	}
+}

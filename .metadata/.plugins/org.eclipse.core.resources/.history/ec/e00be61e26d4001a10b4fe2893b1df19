@@ -1,0 +1,78 @@
+package br.com.ztech.domain;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Transacao {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable=false)
+	private LocalDateTime data;
+	
+	@Column(nullable=false)
+	private BigDecimal valor;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "conta_id", nullable = false) 
+	private Conta conta;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "tipotransacao_id", nullable = false) 
+	private TipoTransacao tipoTransacao;
+	
+	public Transacao() {}
+	
+	public Transacao(LocalDate data, BigDecimal valor, Conta conta, TipoTransacao tipoTransacao) {
+		this.data = data;
+		this.valor = valor;
+		this.conta = conta;
+		this.tipoTransacao = tipoTransacao;
+	}
+
+	
+	public Transacao(Long id, LocalDate data, BigDecimal valor, Conta conta, TipoTransacao tipoTransacao) {
+		this.id = id;
+		this.data = data;
+		this.valor = valor;
+		this.conta = conta;
+		this.tipoTransacao = tipoTransacao;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+}

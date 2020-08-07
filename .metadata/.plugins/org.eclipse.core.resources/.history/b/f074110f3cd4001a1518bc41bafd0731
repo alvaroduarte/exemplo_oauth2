@@ -1,0 +1,24 @@
+package br.com.ztech.controller.dto.converter;
+
+import java.util.List;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
+
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.controller.dto.ExtratoDto;
+import br.com.ztech.domain.Transacao;
+
+@Configuration
+public class TransacoesConverterExtradoDto implements Converter<List<Transacao>, ExtratoDto> {
+	
+	@Override
+	public ExtratoDto convert(List<Transacao> source) {
+		
+		ExtratoDto extratoDto = new ExtratoDto();
+		extratoDto.setConta(new ContaDto());
+		extratoDto.getConta().setAgencia(source.stream().findFirst().get().getConta().getAgencia());
+		
+		
+		return null;
+	}
+}

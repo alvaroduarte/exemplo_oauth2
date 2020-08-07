@@ -1,0 +1,23 @@
+package br.com.ztech.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
+public class Permission extends AbstractEntity {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2434227322786490853L;
+	
+	@Column(name = "name")
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}

@@ -1,0 +1,12 @@
+package br.com.ztech.controller.dto;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+public class ExtratoDto {
+	
+	private ContaDto conta;
+	 
+	private List<TransacaoDto> tipoTransacao;
+
+}	
