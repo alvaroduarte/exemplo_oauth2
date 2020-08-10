@@ -14,7 +14,7 @@
 	<groupId>br.com.ztech</groupId>
 	<artifactId>z-tech-bancodigital</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>z-tech-banco</name>
+	<name>ms-resourceserver</name>
 	<description>Z Tech Banco</description>
 
 	<properties>
